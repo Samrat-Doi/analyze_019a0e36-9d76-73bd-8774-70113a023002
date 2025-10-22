@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Web Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minimal Web Application</h1>
+    </header>
+    <div class="container">
+        <h2>Execute Python Script</h2>
+        <button id="execute">Run script</button>
+        <pre id="output"></pre>
+    </div>
+    <script>
+        document.getElementById('execute').addEventListener('click', function() {
+            fetch('execute.py')
+                .then(response => response.text())
+                .then(data => {
+                    // Execute the script logic here and simulate output for demonstration
+                    const output = "Script executed successfully.\nGenerated result.json file."; // Placeholder output
+                    document.getElementById('output').textContent = output;
+                })
+                .catch(error => {
+                    document.getElementById('output').textContent = "Error: " + error;
+                });
+        });
+    </script>
+</body>
+</html>
